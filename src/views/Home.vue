@@ -337,7 +337,7 @@ onMounted(() => {
     rgba(59, 130, 246, 0.9) 0%,
     rgba(245, 158, 11, 0.8) 100%
   ),
-  url('@/assets/images/community-bg.jpg') no-repeat center center/cover;
+  url('@/assets/images/logo .jpg') no-repeat center center/cover;
 }
 
 .program-card {
