@@ -1,0 +1,233 @@
+@import "tailwindcss";
+/* استيراد الأنماط المخصصة */
+@import "./custom.css";
+
+:root {
+  --primary-blue: #2c5aa0;        /* اللون الأزرق الأساسي */
+  --secondary-blue: #1a3a6e;      /* اللون الأزرق الداكن */
+  --accent-orange: #ff6b35;       /* لون التمييز البرتقالي */
+  --light-bg: #f8f9fa;            /* خلفية فاتحة */
+  --text-dark: #333333;           /* نص داكن */
+  --text-light: #ffffff;          /* نص فاتح */
+  --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+  font-family: 'Tajawal', 'Cairo', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-dark);
+  scroll-behavior: smooth;
+}
+
+.btn-primary {
+  background: var(--accent-orange);
+  color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(255, 107, 53, 0.4);
+  background: #e55a2b;
+}
+
+/* الشعار الجديد - دائرة مع حرف TD */
+.logo-shape {
+  position: relative;
+  width: 100px;
+  height: 90px;
+  margin: 20px auto;
+  animation: logo-float 8s ease-in-out infinite;
+}
+
+@keyframes logo-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+.logo-shape::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  background: var(--gradient);
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(44, 90, 160, 0.3);
+}
+
+.logo-shape::after {
+  content: "TD";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 1.8rem;
+  font-family: 'Tajawal', sans-serif;
+}
+
+.mini-logo {
+  position: relative;
+  width: 40px;
+  height: 36px;
+  margin-left: 10px;
+}
+
+.mini-logo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 32px;
+  background: var(--gradient);
+  border-radius: 50%;
+}
+
+.mini-logo::after {
+  content: "TD";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  font-family: 'Tajawal', sans-serif;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.icon-circle-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.icon-circle-sm:hover {
+  background: white;
+  color: var(--primary-blue);
+  transform: translateY(-2px);
+}
+
+/* عناوين الاقسام */
+.icon-section-divider {
+    position: relative;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.icon-section-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        var(--primary-blue) 0%, 
+        var(--accent-orange) 50%, 
+        var(--primary-blue) 100%);
+    border-radius: 2px;
+}
+
+.section-title-with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: white;
+    padding: 0.5rem 2rem;
+    position: relative;
+    z-index: 2;
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 1.4rem;
+    border: 2px solid var(--primary-blue);
+    border-radius: 30px;
+}
+
+.dark .section-title-with-icon {
+    background: var(--secondary-blue);
+    color: var(--text-light);
+    border-color: var(--accent-orange);
+}
+
+/* أنماط إضافية للهوية الجديدة */
+.gradient-bg {
+  background: var(--gradient);
+}
+
+.text-primary {
+  color: var(--primary-blue);
+}
+
+.text-accent {
+  color: var(--accent-orange);
+}
+
+.border-primary {
+  border-color: var(--primary-blue);
+}
+
+.bg-light {
+  background-color: var(--light-bg);
+}
+
+/* تأثيرات للبطاقات */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(44, 90, 160, 0.2);
+}
+
+/* أنماط التنقل */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-orange);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: var(--primary-blue);
+}
